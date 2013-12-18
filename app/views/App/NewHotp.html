@@ -1,0 +1,33 @@
+{{set . "title" "OATH-HOTP demo: get your code"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+        <h1>OATH-HOTP / Google Authenticator Demo</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <p>Okay, {{.name}}, here's your QR code. You'll need to scan this in with the
+    Google Authenticator app.</p>
+    <img src="data:image/png;base64,{{.png}}" />
+    <p>Your first code generated from this should be {{.code0}}, if you're using
+    the iOS app. If you're using the Android app, it should be {{.code1}}.</p>
+    <p><a class="button" href="/entercode">Got it!</a></p>
+  </div>
+</div>
+
+{{template "footer.html" .}}

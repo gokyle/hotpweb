@@ -1,0 +1,38 @@
+{{set . "title" "OATH-HOTP demo: enter a code"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+        <h1>OATH-HOTP / Google Authenticator Demo</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <p>From here on out, you just need to enter an OTP code. You can even try to
+    skip a few values - I'll scan up 3 codes ahead looking for a match. If you want
+    to try to see this fail, just make up a number.</p>
+    <form action="/entercode" method="POST">
+      <label>Code:</label><br>
+      <input type="text" name="code" /><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <div class="row">
+    <p><a href="/integritycheck" class="btn">Check key value</a></p>
+  </div>
+</div>
+
+{{template "footer.html" .}}

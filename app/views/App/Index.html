@@ -1,0 +1,35 @@
+{{set . "title" "OATH-HOTP demo: Home"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+        <h1>OATH-HOTP / Google Authenticator Demo</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Hello!</h3>
+    <p>You will need the Google Authenticator app to use this demo.</p>
+    <p>Let's get started. What's your name?</p>
+      <form action="/newhotp" method="post">
+        <label>Your name:</label><br>
+        <input type="text" name="name" /><br>
+        <input type="submit" name="submit">
+      </form>
+  </div>
+</div>
+
+{{template "footer.html" .}}
